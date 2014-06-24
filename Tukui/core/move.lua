@@ -6,7 +6,7 @@ T.AllowFrameMoving = {}
 
 -- used to exec various code if we enable or disable moving
 local function exec(self, enable)
-	if self == TukuiGMFrameAnchor then
+	if self == TukuiGMFrameAnchor or self== TukuiBar1Mover then
 		if enable then
 			self:Show()
 		else

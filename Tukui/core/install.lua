@@ -127,6 +127,7 @@ local function cvarsetup()
 	SetCVar("buffDurations", 1)
 	SetCVar("consolidateBuffs", 0)
 	SetCVar("mapQuestDifficulty", 1)
+	SetCVar("cameraDistanceMax", 500)
 	SetCVar("scriptErrors", 1)
 	SetCVar("ShowClassColorInNameplate", 1)
 	SetCVar("screenshotQuality", 8)
@@ -477,7 +478,7 @@ local TukuiOnLogon = CreateFrame("Frame")
 TukuiOnLogon:RegisterEvent("PLAYER_ENTERING_WORLD")
 TukuiOnLogon:SetScript("OnEvent", function(self, event)
 	self:UnregisterEvent("PLAYER_ENTERING_WORLD")
-	
+	SetCVar("cameraDistanceMax", 500)
 	-- create empty saved vars if they doesn't exist.
 	if (TukuiData == nil) then TukuiData = {} end
 	if (TukuiDataPerChar == nil) then TukuiDataPerChar = {} end

@@ -144,14 +144,35 @@ C["datatext"] = {
 C["chat"] = {
 	["enable"] = true,                                  -- blah
 	["whispersound"] = true,                            -- play a sound when receiving whisper
-	["background"] = false,
+	["background"] = true,
+	["leftheight"] = 177,
+	["rightheight"] = 177,
+	["rightwidth"] = 370,
+	["leftwidth"] = 370,
+	["righttab"] = false,
+
 }
 
 C["nameplate"] = {
-	["enable"] = true,                                  -- enable nice skinned nameplates that fit into tukui
-	["showhealth"] = false,				                -- show health text on nameplate
-	["enhancethreat"] = false,			                -- threat features based on if your a tank or not
-	["combat"] = false,					                -- only show enemy nameplates in-combat.
+    ["enable"] = true,                              	-- enable nice skinned nameplates that fit into tukui
+    ["debuffs"] = false,
+    ["height"] = 9,                                     -- Nameplate height
+    ["width"] = 130,                                    -- Nameplate width
+    ["combat"] = false,                                 -- Automatically show nameplate in combat
+    ["showhealth"] = false,                             -- Numeral health value
+    ["showcastbarname"] = false,                        -- Show castbar name
+    ["nameabbrev"] = false,                             -- Display the abbreviated names
+    ["aurassize"] = 20,                                 -- Debuffs size
+    ["goodcolor"] = {75/255,  175/255, 76/255},         -- good threat color (tank shows this with threat, everyone else without)
+    ["badcolor"] = {0.78, 0.25, 0.25},                  -- bad threat color (opposite of above)
+    ["transitioncolor"] = {218/255, 197/255, 92/255},   -- threat color when gaining threat
+    ["healericon"] = false,                             -- Show icon above enemy healers nameplate
+    ["showcastbarname"] = false,
+    ["enhancethreat"] = true,                           -- threat features based on if your a tank or not
+    ["adwidth"] = 3,
+    ["adheight"] = 3,
+    ["classicons"] = true,
+    ["fontsize"] = 10;
 }
 
 C["tooltip"] = {

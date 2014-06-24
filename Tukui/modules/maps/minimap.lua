@@ -10,7 +10,7 @@ if (IsAddOnLoaded("SexyMap")) then return end
 local TukuiMinimap = CreateFrame("Frame", "TukuiMinimap", TukuiPetBattleHider)
 TukuiMinimap:SetTemplate()
 TukuiMinimap:RegisterEvent("ADDON_LOADED")
-TukuiMinimap:Point("TOPRIGHT", UIParent, "TOPRIGHT", -24, -22)
+TukuiMinimap:Point("TOPRIGHT", UIParent, "TOPRIGHT", -36, -22)
 TukuiMinimap:Size(144)
 TukuiMinimap:SetClampedToScreen(true)
 TukuiMinimap:SetMovable(true)

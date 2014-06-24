@@ -21,6 +21,16 @@
 	TukuiConfigUILocalization.nameplategoodcolor = "Farbe für gute Bedrohung, hängt davon ab ob du Tank oder Heiler/DDler bist"
 	TukuiConfigUILocalization.nameplatebadcolor = "Farbe für schlechte Bedrohung, hängt davon ab ob du Tank oder Heiler/DDler bist"
 	TukuiConfigUILocalization.nameplatetransitioncolor = "Farbe für verlieren/erhalten von Bedrohnung"
+	TukuiConfigUILocalization.nameplatedebuffs = "Zeige Schwächungszauber auf den Namensplaketen(Dafür muss Nishastyle aktiv sein)"
+	TukuiConfigUILocalization.nameplateshowcastbarname = "Zeige den Namen in der Zauberleiste"
+	TukuiConfigUILocalization.nameplatewidth = "Breite der Namensplakette"
+	TukuiConfigUILocalization.nameplateheight = "Höhe der Namensplakette"
+	TukuiConfigUILocalization.nameplateaurassize = "Größe der Debuffs"
+	TukuiConfigUILocalization.nameplatenameabbrev = "Namen abgekürzt anzeigen"
+	TukuiConfigUILocalization.nameplateadwith = "Zusätzliche Breite der Namensplaketten, wenn die Namensplakette das Ziel ist"
+	TukuiConfigUILocalization.nameplateadheight = "Zusätzliche Höhe der Namensplaketten, wenn die Namensplakette das Ziel ist"
+	TukuiConfigUILocalization.nameplateclassicons = "Aktiviert die Klassenicons"
+	TukuiConfigUILocalization.nameplatehealericon = "Aktiviert das Heilericon"
 	 
 	-- merchant
 	TukuiConfigUILocalization.merchant = "Händler"

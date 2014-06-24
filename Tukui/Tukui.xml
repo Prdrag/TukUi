@@ -14,6 +14,7 @@
 	<Script file="locales\italian.lua"/>
 	<Script file="config\config.lua"/>
 	<Script file="config\profiles.lua"/>
+	<Script file="config\filter\nameplates.lua"/>
 	<Script file="core\customconfig.lua"/>
 	<Script file="core\config.lua"/>
 	<Script file="medias\medias.lua"/>
@@ -138,7 +139,7 @@
 	<Script file="modules\misc\dropdownlist.lua"/>
 	<Script file="modules\misc\raidutilities.lua"/>
 	<Script file="modules\ui\petbattles.lua"/>
-	
+	<Script file="modules\misc\raidbuffreminder.lua"/>
 	<Script file="modules\skins\achievement.lua"/>
 	<Script file="modules\skins\achievementpopup.lua"/>
 	<Script file="modules\skins\archeology.lua"/>

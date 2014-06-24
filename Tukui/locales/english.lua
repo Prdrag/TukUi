@@ -28,6 +28,17 @@ L.chat_defense = "LocalDefense"
 L.chat_recrutment = "GuildRecruitment"
 L.chat_lfg = "LookingForGroup"
 
+L.nameplate_debuffs = "Show Debuffs on the Nameplates(Turn Nameplates off)"
+L.nameplate_showcastbarname = "Show castbar name"
+L.nameplate_width = "Nameplates width"
+L.nameplate_height = "Nameplates height"
+L.nameplate_aurassize = "Debuffs size"
+L.nameplate_nameabbrev = "Display abbreviated names"
+L.nameplate_adwith = "Additional width if nameplate is the target"
+L.nameplate_adheight = "Additional height if nameplate is the target"
+L.nameplate_classicons = "Enable Classicons in nameplates"
+L.nameplate_healericon = "Enable Healericon in nameplates"
+
 L.disband = "Disbanding group ?"
 
 L.datatext_notalents ="No Talents"

@@ -1,10 +1,25 @@
 local T, C, L, G = unpack(select(2, ...)) 
 
+local mover = CreateFrame("Frame", "TukuiBar1Mover", UIParent)
+mover:SetTemplate("Default")
+mover:Size((T.buttonsize * 12 ) + ( T.buttonspacing * 13 ) + 2, ( T.buttonsize * 2 ) + ( T.buttonspacing * 3 ) + 2)
+mover:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 48)
+mover:SetMovable(true)
+mover:SetClampedToScreen(true)
+mover:SetFrameLevel(10)
+mover:SetBackdropBorderColor(1,0,0)
+mover.text = mover:CreateFontString(nil, "OVERLAY")
+mover.text:SetFont(C.media.font, 12)
+mover.text:SetPoint("CENTER")
+mover.text:SetText("Move Actionbar")
+mover:Hide()
+tinsert(T.AllowFrameMoving, mover)
+
 local TukuiBar1 = CreateFrame("Frame", "TukuiBar1", UIParent, "SecureHandlerStateTemplate")
 TukuiBar1:SetTemplate()
 TukuiBar1:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 13))
 TukuiBar1:SetHeight((T.buttonsize * 1) + (T.buttonspacing * 2))
-TukuiBar1:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 14)
+TukuiBar1:SetPoint("BOTTOMLEFT", mover, 0, 0)
 TukuiBar1:SetFrameStrata("BACKGROUND")
 TukuiBar1:SetFrameLevel(1)
 G.ActionBars.Bar1 = TukuiBar1
@@ -40,7 +55,7 @@ G.ActionBars.Bar3 = TukuiBar3
 
 local TukuiBar4 = CreateFrame("Frame", "TukuiBar4", UIParent, "SecureHandlerStateTemplate")
 TukuiBar4:SetTemplate()
-TukuiBar4:Point("BOTTOM", UIParent, "BOTTOM", 0, 14)
+TukuiBar4:SetPoint("BOTTOMLEFT", mover, 0, 0)
 TukuiBar4:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 13))
 TukuiBar4:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
 TukuiBar4:SetFrameStrata("BACKGROUND")
@@ -103,24 +118,6 @@ else
 end
 G.Panels.BottomPanelOverActionBars = invbarbg
 
--- LEFT VERTICAL LINE
-local ileftlv = CreateFrame("Frame", "TukuiInfoLeftLineVertical", UIParent)
-ileftlv:SetTemplate()
-ileftlv:Size(2, 130)
-ileftlv:Point("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 22, 30)
-ileftlv:SetFrameLevel(1)
-ileftlv:SetFrameStrata("BACKGROUND")
-G.Panels.BottomLeftVerticalLine = ileftlv
-
--- RIGHT VERTICAL LINE
-local irightlv = CreateFrame("Frame", "TukuiInfoRightLineVertical", UIParent)
-irightlv:SetTemplate()
-irightlv:Size(2, 130)
-irightlv:Point("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -22, 30)
-irightlv:SetFrameLevel(1)
-irightlv:SetFrameStrata("BACKGROUND")
-G.Panels.BottomRightVerticalLine = irightlv
-
 if not C.chat.background then
 	-- CUBE AT LEFT, ACT AS A BUTTON (CHAT MENU)
 	local cubeleft = CreateFrame("Frame", "TukuiCubeLeft", UIParent)
@@ -162,36 +159,14 @@ if not C.chat.background then
 	G.Panels.BottomRightCube = cuberight
 end
 
--- HORIZONTAL LINE LEFT
-local ltoabl = CreateFrame("Frame", "TukuiLineToABLeft", UIParent)
-ltoabl:SetTemplate()
-ltoabl:Size(5, 2)
-ltoabl:ClearAllPoints()
-ltoabl:Point("BOTTOMLEFT", ileftlv, "BOTTOMLEFT", 0, 0)
-ltoabl:Point("RIGHT", TukuiBar1, "BOTTOMLEFT", -1, 17)
-ltoabl:SetFrameStrata("BACKGROUND")
-ltoabl:SetFrameLevel(1)
-G.Panels.BottomLeftLine = ltoabl
-
--- HORIZONTAL LINE RIGHT
-local ltoabr = CreateFrame("Frame", "TukuiLineToABRight", UIParent)
-ltoabr:SetTemplate()
-ltoabr:Size(5, 2)
-ltoabr:Point("LEFT", TukuiBar1, "BOTTOMRIGHT", 1, 17)
-ltoabr:Point("BOTTOMRIGHT", irightlv, "BOTTOMRIGHT", 0, 0)
-ltoabr:SetFrameStrata("BACKGROUND")
-ltoabr:SetFrameLevel(1)
-G.Panels.BottomRightLine = ltoabr
-
 -- MOVE/HIDE SOME ELEMENTS IF CHAT BACKGROUND IS ENABLED
 local movechat = 0
-if C.chat.background then movechat = 10 ileftlv:SetAlpha(0) irightlv:SetAlpha(0) end
 
 -- INFO LEFT (FOR STATS)
 local ileft = CreateFrame("Frame", "TukuiInfoLeft", UIParent)
 ileft:SetTemplate()
 ileft:Size(T.InfoLeftRightWidth, 23)
-ileft:SetPoint("LEFT", ltoabl, "LEFT", 14 - movechat, 0)
+ileft:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 14 - movechat, 14)
 ileft:SetFrameLevel(2)
 ileft:SetFrameStrata("BACKGROUND")
 G.Panels.DataTextLeft = ileft
@@ -200,20 +175,18 @@ G.Panels.DataTextLeft = ileft
 local iright = CreateFrame("Frame", "TukuiInfoRight", UIParent)
 iright:SetTemplate()
 iright:Size(T.InfoLeftRightWidth, 23)
-iright:SetPoint("RIGHT", ltoabr, "RIGHT", -14 + movechat, 0)
+iright:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -14 + movechat, 14)
 iright:SetFrameLevel(2)
 iright:SetFrameStrata("BACKGROUND")
 G.Panels.DataTextRight = iright
 
 if C.chat.background then
 	-- Alpha horizontal lines because all panels is dependent on this frame.
-	ltoabl:SetAlpha(0)
-	ltoabr:SetAlpha(0)
 	
 	-- CHAT BG LEFT
 	local chatleftbg = CreateFrame("Frame", "TukuiChatBackgroundLeft", TukuiInfoLeft)
 	chatleftbg:SetTemplate("Transparent")
-	chatleftbg:Size(T.InfoLeftRightWidth + 12, 177)
+	chatleftbg:Size(C.chat.leftwidth + 12, C.chat.leftheight)
 	chatleftbg:Point("BOTTOM", TukuiInfoLeft, "BOTTOM", 0, -6)
 	chatleftbg:SetFrameLevel(1)
 	G.Panels.LeftChatBackground = chatleftbg
@@ -221,7 +194,7 @@ if C.chat.background then
 	-- CHAT BG RIGHT
 	local chatrightbg = CreateFrame("Frame", "TukuiChatBackgroundRight", TukuiInfoRight)
 	chatrightbg:SetTemplate("Transparent")
-	chatrightbg:Size(T.InfoLeftRightWidth + 12, 177)
+	chatrightbg:Size(C.chat.rightwidth + 12, C.chat.rightheight)
 	chatrightbg:Point("BOTTOM", TukuiInfoRight, "BOTTOM", 0, -6)
 	chatrightbg:SetFrameLevel(1)
 	G.Panels.RightChatBackground = chatrightbg
@@ -237,33 +210,14 @@ if C.chat.background then
 		
 	-- RIGHT TAB PANEL
 	local tabsbgright = CreateFrame("Frame", "TukuiTabsRightBackground", UIParent)
-	tabsbgright:SetTemplate()
+	if C.chat.righttab == true then
+		tabsbgright:SetTemplate()
+	end
 	tabsbgright:Size(T.InfoLeftRightWidth, 23)
 	tabsbgright:Point("TOP", chatrightbg, "TOP", 0, -6)
 	tabsbgright:SetFrameLevel(2)
 	tabsbgright:SetFrameStrata("BACKGROUND")
 	G.Panels.RightChatTabsBackground = tabsbgright
-
-	-- [[ Create new horizontal line for chat background ]] --
-	-- HORIZONTAL LINE LEFT
-	local ltoabl2 = CreateFrame("Frame", "TukuiLineToABLeftAlt", UIParent)
-	ltoabl2:SetTemplate()
-	ltoabl2:Size(5, 2)
-	ltoabl2:Point("RIGHT", TukuiBar1, "LEFT", 0, 16)
-	ltoabl2:Point("BOTTOMLEFT", chatleftbg, "BOTTOMRIGHT", 0, 16)
-	ltoabl2:SetFrameStrata("BACKGROUND")
-	ltoabl2:SetFrameLevel(1)
-	G.Panels.LeftDataTextToActionBarLine = ltoabl2
-
-	-- HORIZONTAL LINE RIGHT
-	local ltoabr2 = CreateFrame("Frame", "TukuiLineToABRightAlt", UIParent)
-	ltoabr2:SetTemplate()
-	ltoabr2:Size(5, 2)
-	ltoabr2:Point("LEFT", TukuiBar1, "RIGHT", 0, 16)
-	ltoabr2:Point("BOTTOMRIGHT", chatrightbg, "BOTTOMLEFT", 0, 16)
-	ltoabr2:SetFrameStrata("BACKGROUND")
-	ltoabr2:SetFrameLevel(1)
-	G.Panels.RightDataTextToActionBarLine = ltoabr2
 end
 
 if TukuiMinimap then

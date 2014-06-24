@@ -20,6 +20,17 @@ TukuiConfigUILocalization.nameplatecombat = "Only show enemy nameplates in-comba
 TukuiConfigUILocalization.nameplategoodcolor = "Good threat color, varies depending if your a tank or dps/heal"
 TukuiConfigUILocalization.nameplatebadcolor = "Bad threat color, varies depending if your a tank or dps/heal"
 TukuiConfigUILocalization.nameplatetransitioncolor = "Losing/Gaining threat color"
+TukuiConfigUILocalization.nameplatedebuffs = "Show Debuffs on the Nameplates(Turn Nameplates off)"
+TukuiConfigUILocalization.nameplateshowcastbarname = "Show castbar name"
+TukuiConfigUILocalization.nameplatewidth = "Nameplates width"
+TukuiConfigUILocalization.nameplateheight = "Nameplates height"
+TukuiConfigUILocalization.nameplateaurassize = "Debuffs size"
+TukuiConfigUILocalization.nameplatenameabbrev = "Display abbreviated names"
+TukuiConfigUILocalization.nameplateadwidth = "Additional width if nameplate is the target"
+TukuiConfigUILocalization.nameplateadheight = "Additional height if nameplate is the target"
+TukuiConfigUILocalization.nameplateclassicons = "Enable Classicons in nameplates"
+TukuiConfigUILocalization.nameplatehealericon = "Enable Healericon in nameplates"
+ 
  
 -- merchant
 TukuiConfigUILocalization.merchant = "Merchant"
