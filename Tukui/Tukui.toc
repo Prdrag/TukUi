@@ -1,0 +1,16 @@
+﻿## Interface: 50400
+## Author: Tukz
+## Version: 15.85
+## Title: |cffC495DDTukui|r
+## Notes: UI of awesomeness!
+## SavedVariables: TukuiData
+## SavedVariablesPerCharacter: TukuiDataPerChar
+## OptionalDeps: Tukui_ConfigUI, Clique
+## X-oUF: oUFTukui
+## Website: http://www.tukui.org
+
+Tukui.xml
+
+
+## X-Tukui-ProjectID: -1
+## X-Tukui-ProjectFolders: Tukui_ConfigUI, Tukui
